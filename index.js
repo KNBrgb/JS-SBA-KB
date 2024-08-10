@@ -79,31 +79,53 @@ const CourseInfo = {
 function getLearnerData(course, ag, submissions) {
 //     // here, we would process this data to achieve the desired result.
     
-// const result = []
+const result = []
 
-// const learnerid =[];    
+const learnerid =[];
 
 submissions.forEach((item) => {
     // console.log(item.learner_id)
     let learners = item.learner_id
     let score = item.submission.score
     let assignmentId = item.assignment_id
-    let submitDate = item.submission.submitted_at
-    console.log(score,learners,assignmentId,submitDate)
+    let submitDate = new Date(item.submission.submitted_at)
+    learnerid.scoreTotal += Number(score)
+    console.log(number(learnerid))
+    // console.log(score,learners,assignmentId,submitDate)
 
-ag.assignments.forEach((assignment)=>{
-        let agID = assignments.id
-        let dueDate = assignments.due_at
-        let pointsPossible = assignments.points_possible 
+ag.assignments.forEach((assignment)=> {
+        let agID = assignment.id;
+        let dueDate = new Date(assignment.due_at);
+        let pointsPossible = assignment.points_possible ;
 
-        console.log(agID,dueDate,pointsPossible)
-    }
+    if(pointsPossible = 0)
+        // console.log(agID,dueDate,pointsPossible)
+
+    if(submitDate>dueDate){
+        let latesubscore = score - (pointsPossible *.10)
+        console.log()
+    }    
+
+    // if(submitDate<=dueDate)Retur
+const learners = {
+        id: 125,
+      }
+      learners[1] = 0.94
+
+try {if(ag.course_id !== course.id){
+    throw new Error('You shall not pass!');
+}
+} catch (error){
+    console.log(error)
+}
+    
+}
 
 )}
 
 
 // let avgScore = ()
-
+// delcalre a var of scor total that should be plus = the score
     
         //   {
     //     id: 125,
@@ -119,8 +141,8 @@ ag.assignments.forEach((assignment)=>{
     //   },
     // ];
   
-    // return result;
-  }
+    return result;
+  )};
   
   const result = getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions);
   
