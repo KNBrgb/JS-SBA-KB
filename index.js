@@ -3,7 +3,7 @@ const CourseInfo = {
     id: 451,
     name: "Introduction to JavaScript",
   };
-  
+
   // The provided assignment group.
   const AssignmentGroup = {
     id: 12345,
@@ -31,7 +31,7 @@ const CourseInfo = {
       },
     ],
   };
-  
+
   // The provided learner submission data.
   const LearnerSubmissions = [
     {
@@ -75,22 +75,33 @@ const CourseInfo = {
       },
     },
   ];
- // ------------------------------------------------------------------------------------------------------------------------------
+
+ // ----
 function getLearnerData(course, ag, submissions) {
+
 //     // here, we would process this data to achieve the desired result.
-    
+const item = []
 const result = []
 
-const learnerid =[];
+const learnerId = [(item.learner_id)];
 
 submissions.forEach((item) => {
     // console.log(item.learner_id)
+    const learnerId = [(item.learner_id)];
+
+    if(learnerId.includes(item.learner_id)){
+        console.log(learnerId)
+    } else{
+        learnerId.push(item.learner_id)
+    }
+    // let learnerId =  ()
     let learners = item.learner_id
     let score = item.submission.score
     let assignmentId = item.assignment_id
     let submitDate = new Date(item.submission.submitted_at)
-    learnerid.scoreTotal += Number(score)
-    console.log(number(learnerid))
+    // let scoreTotal = ((learner_id.score) + score )
+    learnerId.scoreTotal += Number(score)
+    console.log(Number(learnerId))
     // console.log(score,learners,assignmentId,submitDate)
 
 ag.assignments.forEach((assignment)=> {
@@ -103,32 +114,26 @@ ag.assignments.forEach((assignment)=> {
 
     if(submitDate>dueDate){
         let latesubscore = score - (pointsPossible *.10)
-        console.log()
-    }    
-
-    // if(submitDate<=dueDate)Retur
-const learners = {
-        id: 125,
-      }
-      learners[1] = 0.94
-
+        console.log("last submission");
+    } else if(submitDate <= dueDate) {
+        console.log("on time submission")
+    }
 try {if(ag.course_id !== course.id){
     throw new Error('You shall not pass!');
-}
-} catch (error){
+}} catch (error){
     console.log(error)
 }
-    
+
 }
 
 )}
-
-
+                    
 // let avgScore = ()
 // delcalre a var of scor total that should be plus = the score
-    
+
         //   {
     //     id: 125,
+
     //     avg: 0.985, // (47 + 150) / (50 + 150)
     //     1: 0.94, // 47 / 50
     //     2: 1.0, // 150 / 150
@@ -140,14 +145,19 @@ try {if(ag.course_id !== course.id){
     //     2: 0.833, // late: (140 - 15) / 150
     //   },
     // ];
-  
-    return result;
-  )};
-  
+    // return result;
+
+
+  // WHY IS THIS ERROR HERE? 
+          
+    )
+     return result
+}
+
+
   const result = getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions);
   
   console.log(result);
 
   // foreach submissions should stay there, contains the learner id, that id is also the assignment id
   // avg goes in learner submissions
-
